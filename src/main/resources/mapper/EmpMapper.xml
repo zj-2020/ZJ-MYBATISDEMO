@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tedu.dao.EmpMapper">
+   <!-- 
+	resultType：返回值类型，简单类型（例如：Integer，String，Emp等）
+		如果返回集合(List<Emp>)，只需配置集合中的元素类型即可！
+	resultMap：复杂对象结构（例如多表关联查询等），后面用到再讲解
+	 -->
+    <select id="findAll" resultType="com.tedu.pojo.Emp">
+        select * from emp
+    </select>
+    <select id="findById" resultType="com.tedu.pojo.Emp">
+        select * from emp where id=#{id}
+    </select>
+    <delete id="insert">
+        insert into emp(id,name,job,salary) values(#{id},#{name},#{job},#{salary})
+    </delete>
+</mapper>
